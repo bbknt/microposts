@@ -10,6 +10,12 @@
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
+      
+      <%= f.label :area %>
+      <%= f.text_field :area, class: "form_control", placeholder: "省略可" %>
+            
+      <%= f.label :profile %>
+      <%= f.text_area :profile, class: "form_control", rows: "3", placeholder: "省略可" %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
