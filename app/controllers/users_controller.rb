@@ -23,9 +23,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
   
   def update
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -55,22 +57,7 @@ class UsersController < ApplicationController
     flash[:danger] = "Invalid access."
     end
   end
-  
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Please log in."
-      redirect_to login_path
-    end
-  end
-  
-  def correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-    redirect_to(root_path)
-    flash[:danger] = "Invalid access."
-    end
-  end
-  
+
 end
   
  
