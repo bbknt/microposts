@@ -8,10 +8,31 @@
         <%= @user.name %>
       
       </h1>
+      
+      <div class="panel panel-default panel-profile">
+        <div class="panel-heading">
+          <strong>Area</strong>
+        </div>
+        <div class="panel-body">
+          <%= @user.area %>
+        </div>
+      </div>
+      
+      <div class="panel panel-default panel-profile">
+        <div class="panel-heading">
+          <strong>Profile</strong>
+        </div>
+        <div class="panel-body">
+          <%= @user.profile %>
+        </div>
+      </div>
+      
     </section>
   </aside>
+  
   <div class="col-md-8">
 
+<<<<<<< HEAD
     <%= render 'follow_form' if logged_in? %>
 
     <% if @user.microposts.any? %>
@@ -23,7 +44,6 @@
         <%= render @microposts %>
       
       </ol>
-<% end %>
-
+    <% end %>
   </div>
 </div>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the MicroPosts!"
       redirect_to @user
     else
       render 'new'
@@ -38,7 +38,22 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :area, :profile, :password, :password_confirmation)
+  end
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_path
+    end
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+    redirect_to(root_path)
+    flash[:danger] = "Invalid access."
+    end
   end
   
   def logged_in_user
@@ -57,3 +72,7 @@ class UsersController < ApplicationController
   end
   
 end
+  
+ 
+  
+

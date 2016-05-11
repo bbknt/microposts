@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
     validates :area, length: {maximum: 100}
     validates :profile, length: {maximum: 500}                  
     has_secure_password
+    validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+    
     has_many :microposts
     
     has_many :following_relationships, class_name:  "Relationship",
@@ -36,5 +38,4 @@ class User < ActiveRecord::Base
       following_users.include?(other_user)
     end
       
-
-end
+ 
