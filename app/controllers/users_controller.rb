@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
   
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
   
   def show
@@ -28,14 +28,14 @@ class UsersController < ApplicationController
     @title = "Following"
     @user = User.find(params[:id])
     @users = @user.following_users.paginate(page: params[:page])
-    render 'show_follow'
+    render '_show_follow'
   end
   
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
     @users = @user.follower_users.paginate(page: params[:page])
-    render 'show_follow'
+    render '_show_follow'
   end
   
   private

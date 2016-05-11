@@ -18,13 +18,21 @@
     </section>
   </aside>
   
-  <div class="col-md-8>
+  <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users_follow">
-        <%= render @users %>
+    
+      <ul class="users">
+        <% @users.each do |user| %>
+        
+          <li>
+            <%= link_to gravatar_for(user, size: 50), user %>
+            <%= link_to user.name, user %>
+          </li>
+        <% end %>
+        <%= will_paginate %>
       </ul>
-      <%= will_paginate %>
-      <% end %>
+    <% end %>
+    
   </div>
 </div>
