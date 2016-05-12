@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
 
-<%= link_to "Microposts", "#", id: "logo" %>
+<%= link_to "Microposts", root_path, id: "logo" %>
     
     <nav>
       <ul class="nav navbar-nav navbar-right">
@@ -26,7 +26,7 @@
 <%= link_to "Profile", current_user %>
 </li>
             <li>
-<%= link_to "Settings", '#' %>
+<%= link_to "Settings", edit_user_path(current_user) %>
 </li>
             <li class="divider"></li>
             <li>
