@@ -39,9 +39,6 @@ class UsersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-
-=======
   def following
     @title = "Following"
     @user = User.find(params[:id])
@@ -56,24 +53,17 @@ class UsersController < ApplicationController
     render '_show_follow'
   end
   
->>>>>>> followings-followers
   private
   
   def user_params
     params.require(:user).permit(:name, :email, :area, :profile, :password, :password_confirmation)
   end
-<<<<<<< HEAD
-
-=======
   
->>>>>>> followings-followers
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in."
       redirect_to login_path
     end
-<<<<<<< HEAD
-=======
   end
   
   def correct_user
@@ -82,7 +72,6 @@ class UsersController < ApplicationController
     redirect_to(root_path)
     flash[:danger] = "Invalid access."
     end
->>>>>>> followings-followers
   end
   
   def correct_user
