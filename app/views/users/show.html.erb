@@ -10,23 +10,28 @@
       </h1>
     </section>
     
-      <div class="panel panel-default panel-profile">
-        <div class="panel-heading">
-          <strong>Area</strong>
-        </div>
-        <div class="panel-body">
-          <%= @user.area %>
-        </div>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+    
+    <div class="panel panel-default panel-profile">
+      <div class="panel-heading">
+        <strong>Area</strong>
       </div>
+      <div class="panel-body">
+        <%= @user.area %>
+      </div>
+    </div>
       
-      <div class="panel panel-default panel-profile">
-        <div class="panel-heading">
-          <strong>Profile</strong>
-        </div>
-        <div class="panel-body">
-          <%= @user.profile %>
-        </div>
+    <div class="panel panel-default panel-profile">
+      <div class="panel-heading">
+        <strong>Profile</strong>
       </div>
+      <div class="panel-body">
+        <%= @user.profile %>
+      </div>
+    </div>
+    
   </aside>
   
   <div class="col-md-8">
